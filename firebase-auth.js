@@ -7,7 +7,7 @@ import {
   sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
 
-// ✅ Firebase Config
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyA6EYHJBZiaJ7zkSFAceB6Dl2zDvq9rHG0",
   authDomain: "ai-assistant-3d1d1.firebaseapp.com",
@@ -18,11 +18,29 @@ const firebaseConfig = {
   measurementId: "G-DNZ342NMQR"
 };
 
-// ✅ Initialize App and Auth
+// Initialize App and Auth
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// ✅ LOGIN
+// Toast Function
+function showToast(message, isSuccess = true) {
+  const toast = document.createElement("div");
+  toast.className = `custom-toast ${isSuccess ? "success" : "error"}`;
+  toast.textContent = message;
+
+  document.body.appendChild(toast);
+
+  setTimeout(() => {
+    toast.classList.add("show");
+  }, 10);
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+    setTimeout(() => toast.remove(), 300);
+  }, 3000);
+}
+
+// LOGIN
 window.login = async function (e) {
   e.preventDefault();
   const email = document.getElementById("login-email").value;
@@ -30,14 +48,16 @@ window.login = async function (e) {
 
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    alert("Login successful!");
-    window.location.href = "/pages/dashboard.html";
+    showToast("Login successful!");
+    setTimeout(() => {
+      window.location.href = "/pages/dashboard.html";
+    }, 1000);
   } catch (error) {
-    alert("Login failed: " + error.message);
+    showToast("Login failed: " + error.message, false);
   }
 };
 
-// ✅ REGISTER
+// REGISTER
 window.register = async function (e) {
   e.preventDefault();
   const email = document.getElementById("register-email").value;
@@ -45,35 +65,36 @@ window.register = async function (e) {
 
   try {
     await createUserWithEmailAndPassword(auth, email, password);
-    alert("Account created! Redirecting to dashboard...");
-    window.location.href = "/pages/dashboard.html";
+    showToast("Account created!");
+    setTimeout(() => {
+      window.location.href = "/pages/dashboard.html";
+    }, 1000);
   } catch (error) {
-    alert("Signup failed: " + error.message);
+    showToast("Signup failed: " + error.message, false);
   }
 };
 
-// ✅ FORGOT PASSWORD UI TOGGLE
+// FORGOT PASSWORD TOGGLE
 document.getElementById("forgot-password-link")?.addEventListener("click", (e) => {
   e.preventDefault();
   const resetContainer = document.getElementById("reset-password-container");
   if (resetContainer) resetContainer.style.display = "block";
 });
 
-// ✅ SEND RESET EMAIL
+// SEND RESET EMAIL
 window.sendResetEmail = async function () {
   const email = document.getElementById("reset-email").value;
   if (!email) {
-    alert("Please enter your email.");
+    showToast("Please enter your email.", false);
     return;
   }
 
   try {
     await sendPasswordResetEmail(auth, email);
-    alert("Password reset email sent! Check your inbox.");
+    showToast("Password reset email sent!");
   } catch (error) {
-    alert("Error: " + error.message);
+    showToast("Error: " + error.message, false);
   }
 };
 
-// ✅ Export for optional Firebase access in other files
 export { auth };

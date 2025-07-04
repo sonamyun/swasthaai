@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Swastha AI</title>
+  <title>Swastha AI Login</title>
   <link rel="stylesheet" href="login.css"/>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
 <div class="container" id="container">
- 
+  <!-- Sign Up Form -->
   <div class="form-container sign-up-container">
     <form onsubmit="return register(event)">
       <h1>Create Account</h1><br>
@@ -22,10 +20,10 @@
     </form>
   </div>
 
+  <!-- Sign In Form -->
   <div class="form-container sign-in-container">
     <form onsubmit="return login(event)">
-      <h1>Sign in</h1>
-      <br> 
+      <h1>Sign in</h1><br>
       <input type="email" id="login-email" placeholder="Email" required />
       <input type="password" id="login-password" placeholder="Password" required />
       <a href="#" id="forgot-password-link">Forgot your password?</a>
@@ -33,6 +31,7 @@
     </form>
   </div>
 
+  <!-- Overlay -->
   <div class="overlay-container">
     <div class="overlay">
       <div class="overlay-panel overlay-left">
@@ -49,15 +48,25 @@
   </div>
 </div>
 
-
-<div id="reset-password-container" style="display: none; margin-top: 15px;">
-  <input type="email" id="reset-email" placeholder="Enter your email" style="padding: 10px; border-radius: 25px; border: 1px solid #ccc; width: 100%;" />
-  <button onclick="sendResetEmail()" style="margin-top: 10px;">Send Reset Link</button>
+<!-- Password Reset Section -->
+<div id="reset-password-container" style="display: none; margin-top: 15px; text-align: center;">
+  <input type="email" id="reset-email" placeholder="Enter your email" />
+  <button onclick="sendResetEmail()">Send Reset Link</button>
 </div>
 
+<script type="module" src="/firebase/firebase-auth.js"></script>
+<script>
+  const signUpButton = document.getElementById('signUp');
+  const signInButton = document.getElementById('signIn');
+  const container = document.getElementById('container');
 
-<script type="module" src="firebase-auth.js"></script>
-<script src="toggle.js"></script>
+  signUpButton.addEventListener('click', () => {
+    container.classList.add("right-panel-active");
+  });
 
+  signInButton.addEventListener('click', () => {
+    container.classList.remove("right-panel-active");
+  });
+</script>
 </body>
 </html>

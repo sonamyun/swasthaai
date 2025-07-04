@@ -209,7 +209,6 @@ input {
 	transform: translateX(20%);
 }
 
-
 .social-container {
 	display: none;
 }
@@ -257,4 +256,36 @@ footer a {
 
 #reset-password-container button:hover {
   background-color: #e54327;
+}
+
+.custom-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 240px;
+  max-width: 400px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 12px rgba(0,0,0,0.15);
+  color: #fff;
+  pointer-events: none;
+}
+
+.custom-toast.success {
+  background-color: #28a745;
+}
+
+.custom-toast.error {
+  background-color: #dc3545;
+}
+
+.custom-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+  pointer-events: auto;
 }
