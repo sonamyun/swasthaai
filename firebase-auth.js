@@ -97,4 +97,18 @@ window.sendResetEmail = async function () {
   }
 };
 
+window.login = async function (event) {
+  event.preventDefault();
+  // your login logic
+};
+
+window.register = async function (event) {
+  event.preventDefault();
+  // your register logic
+};
+
+window.sendResetEmail = async function () {
+  // your reset logic
+};
+
 export { auth };
