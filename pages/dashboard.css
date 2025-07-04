@@ -1,89 +1,89 @@
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #e6f0ff;
-  display: flex;
-}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e6f0ff;
+    display: flex;
+  }
 
-.sidebar {
-  background: #fff;
-  width: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 2px solid #ccc;
-}
+  .sidebar {
+    background: #fff;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #ccc;
+  }
 
-.home-icon {
-  font-size: 24px;
-}
+  .home-icon {
+    font-size: 24px;
+  }
 
-.main {
-  flex: 1;
-  padding: 20px;
-}
+  .main {
+    flex: 1;
+    padding: 20px;
+  }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.logout-btn {
-  background: red;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
+  .logout-btn {
+    background: red;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
 
-section {
-  margin-top: 20px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-}
+  section {
+    margin-top: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
 
-.actions .btn {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  margin-right: 10px;
-  font-weight: bold;
-  cursor: pointer;
-}
+  .actions .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-.btn.help { background-color: #2f56f0; color: white; }
-.btn.locate { background-color: #28a745; color: white; }
-.btn.doctor { background-color: #ffc107; color: black; }
+  .btn.help { background-color: #2f56f0; color: white; }
+  .btn.locate { background-color: #28a745; color: white; }
+  .btn.doctor { background-color: #ffc107; color: black; }
 
-.chatbox {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-}
+  .chatbox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+  }
 
-.chatbox input {
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+  .chatbox input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
 
-.submit-btn {
-  width: 100px;
-  padding: 10px;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 6px;
-}
+  .submit-btn {
+    width: 100px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 6px;
+  }
 
-.response {
-  margin-top: 10px;
-  background-color: #fff;
-  padding: 10px;
-  border-radius: 6px;
-}
+  .response {
+    margin-top: 10px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 6px;
+  }
