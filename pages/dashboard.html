@@ -1,44 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swastha AI Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css">
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
   <div class="sidebar">
-    <div class="menu-icon">
-      <i class="fas fa-bars"></i>
-    </div>
-    <div class="menu-button"></div>
+    <i class="home-icon">🏠</i>
   </div>
-
-  <div class="main-content">
-    <div class="top-widgets">
-      <div class="widget">
-        <p><strong>USER STATS</strong><br>CURRENT USERS<br>AUTHENTICATED API</p>
-      </div>
-      <div class="widget">
-        <p><strong>RECENT TRENDS<br>IN MEDICAL</strong></p>
-      </div>
-    </div>
-
-    <div class="mid-buttons">
-      <button class="action-button">ASK HELP</button>
-      <button class="action-button">LOCATE</button>
-      <button class="action-button">$ ASK DOCTOR</button>
-    </div>
-
-    <div class="input-section">
-      <div class="input-box">
-        <i class="fas fa-plus"></i>
-        <input type="text" placeholder="Write Your Medical Problems or Symptoms" />
-        <i class="fas fa-star"></i>
-      </div>
-    </div>
+  <div class="main">
+    <header>
+      <h1>Swastha AI Dashboard</h1>
+      <button class="logout-btn">Logout</button>
+    </header>
+    <section class="stats">
+      <h2>User Stats</h2>
+      <p>Email: <span id="email">Loading...</span></p>
+      <p>Auth Type: <span id="authType">Loading...</span></p>
+      <p>Total Users: <span id="totalUsers">Loading...</span></p>
+    </section>
+    <section class="trends">
+      <h2>Medical Trends</h2>
+      <p>Recent health-related insights and updates.</p>
+    </section>
+    <section class="actions">
+      <button class="btn help" onclick="redirectHelp()">Ask Help</button>
+      <button class="btn locate" onclick="redirectLocate()">Locate</button>
+      <button class="btn doctor" onclick="askDoctor()">Ask Doctor</button>
+    </section>
+    <section class="chatbox">
+      <input type="text" placeholder="Describe your medical symptoms..." />
+      <button class="submit-btn">Submit</button>
+      <div class="response">Swastha AI: Sorry, the AI could not respond properly.</div>
+    </section>
   </div>
-
   <script src="dashboard.js"></script>
 </body>
 </html>

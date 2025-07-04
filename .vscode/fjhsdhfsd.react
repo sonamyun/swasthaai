@@ -1,0 +1,98 @@
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { LogOut, LocateFixed, HelpCircle, UserPlus, Home, Menu } from "lucide-react";
+import { motion } from "framer-motion";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+
+export default function Dashboard() {
+  const [showMembershipModal, setShowMembershipModal] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex">
+      {/* Sidebar */}
+      <div className="w-16 bg-white shadow-md flex flex-col items-center py-4">
+        <Menu className="mb-6" />
+        <Home className="text-blue-500" />
+      </div>
+
+      {/* Main Content */}
+      <div className="flex-1 p-6">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-3xl font-bold text-gray-800">Swastha AI Dashboard</h1>
+          <Button variant="destructive">
+            <LogOut className="mr-2 h-4 w-4" /> Logout
+          </Button>
+        </div>
+
+        {/* Widgets Side-by-Side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-lg font-semibold">User Stats</h2>
+              <p className="text-sm text-gray-600 mt-2">
+                Email: <span className="font-medium" id="user-email">Loading...</span><br />
+                Auth Type: <span className="font-medium" id="auth-type">Loading...</span><br />
+                Total Users: <span className="font-medium" id="user-count">Loading...</span>
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-4">
+              <h2 className="text-lg font-semibold">Medical Trends</h2>
+              <p className="text-sm text-gray-600 mt-2">Recent health-related insights and updates.</p>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* Button Row */}
+        <div className="flex gap-4 mb-6">
+          <Button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white">
+            <HelpCircle className="mr-2 h-4 w-4" /> Ask Help
+          </Button>
+          <Button className="flex-1 bg-green-600 hover:bg-green-700 text-white">
+            <LocateFixed className="mr-2 h-4 w-4" /> Locate
+          </Button>
+          <Button
+            onClick={() => setShowMembershipModal(true)}
+            className="flex-1 bg-yellow-500 hover:bg-yellow-600 text-white"
+          >
+            <UserPlus className="mr-2 h-4 w-4" /> Ask Doctor
+          </Button>
+        </div>
+
+        {/* Input Section */}
+        <Card>
+          <CardContent className="p-4">
+            <div className="flex items-center gap-4">
+              <Input
+                id="symptom-input"
+                placeholder="Describe your medical symptoms..."
+                className="flex-1"
+              />
+              <Button id="submit-symptom">Submit</Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Membership Modal */}
+        <Dialog open={showMembershipModal} onOpenChange={setShowMembershipModal}>
+          <DialogContent className="max-w-sm">
+            <DialogHeader>
+              <DialogTitle>Premium Feature</DialogTitle>
+              <DialogDescription>
+                Asking a doctor is a premium feature. Please buy a membership to unlock this.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="flex justify-end gap-2 mt-4">
+              <Button variant="outline" onClick={() => setShowMembershipModal(false)}>Cancel</Button>
+              <Button onClick={() => alert("Redirecting to payment...")}>Buy Membership</Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </div>
+  );
+}

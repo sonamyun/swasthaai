@@ -1,116 +1,89 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
 
 body {
-  background-color: #f0f0f0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #e6f0ff;
   display: flex;
-  height: 100vh;
-  overflow: hidden;
 }
 
-/* Sidebar */
 .sidebar {
-  width: 70px;
-  background-color: #444;
+  background: #fff;
+  width: 60px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  border-right: 2px solid #ccc;
 }
 
-.menu-icon {
-  color: white;
-  font-size: 20px;
-  margin-bottom: 20px;
+.home-icon {
+  font-size: 24px;
 }
 
-.menu-button {
-  width: 30px;
-  height: 30px;
-  background-color: black;
-  border-radius: 50%;
-  margin-top: auto;
-  margin-bottom: 20px;
-}
-
-/* Main Content */
-.main-content {
+.main {
   flex: 1;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  padding: 20px;
 }
 
-.top-widgets {
+header {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
-}
-
-.widget {
-  flex: 1;
-  background-color: #666;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.mid-buttons {
-  display: flex;
-  gap: 20px;
-  justify-content: start;
-}
-
-.action-button {
-  flex: none;
-  padding: 12px 25px;
-  background-color: #888;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-}
-
-.action-button:hover {
-  background-color: #555;
-}
-
-.input-section {
-  flex-grow: 1;
-  display: flex;
-  align-items: flex-end;
-}
-
-.input-box {
-  background-color: #333;
-  color: white;
-  width: 100%;
-  padding: 15px;
-  border-radius: 15px;
-  display: flex;
   align-items: center;
-  gap: 10px;
 }
 
-.input-box i {
+.logout-btn {
+  background: red;
   color: white;
-}
-
-.input-box input {
-  flex: 1;
-  background: none;
+  padding: 10px 15px;
   border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+section {
+  margin-top: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.actions .btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  margin-right: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn.help { background-color: #2f56f0; color: white; }
+.btn.locate { background-color: #28a745; color: white; }
+.btn.doctor { background-color: #ffc107; color: black; }
+
+.chatbox {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chatbox input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  width: 100px;
+  padding: 10px;
+  background-color: black;
   color: white;
-  outline: none;
-  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+}
+
+.response {
+  margin-top: 10px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 6px;
 }
